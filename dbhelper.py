@@ -5,23 +5,23 @@ class DB:
         # connect to the database
         try:
             self.conn = mysql.connector.connect(
-                host='database-1.codzmntflx6t.ap-northeast-1.rds.amazonaws.com',
-                user='admin',
-                password='911Pentagon',
-                database='flights'
+                host='127.0.0.1',
+                user='root',
+                password='',
+                database='flight database'
             )
             self.mycursor = self.conn.cursor()
-            print('Connection established')
+            print('Connected to MySQL Server')
         except:
-            print('Connection error')
+            print('Error connecting to MySQL')
 
     def fetch_city_names(self):
 
         city = []
         self.mycursor.execute("""
-        SELECT DISTINCT(Destination) FROM flights.flights
+        SELECT DISTINCT(Destination) FROM flights_cleaned___flights_cleaned
         UNION
-        SELECT DISTINCT(Source) FROM flights.flights
+        SELECT DISTINCT(Source) FROM flights_cleaned___flights_cleaned
         """)
 
         data = self.mycursor.fetchall()
@@ -31,12 +31,12 @@ class DB:
 
         return city
 
-    def fetch_all_flights(self,source,destination):
+    def fetch_all_flights(self, source, destination):
 
         self.mycursor.execute("""
-        SELECT Airline,Route,Dep_Time,Duration,Price FROM flights
-        WHERE Source = '{}' AND Destination = '{}'
-        """.format(source,destination))
+           SELECT Airline,Route,Dep_Time,Duration,Price FROM flights_cleaned___flights_cleaned
+           WHERE Source = '{}' AND Destination = '{}'
+           """.format(source, destination))
 
         data = self.mycursor.fetchall()
 
@@ -48,7 +48,7 @@ class DB:
         frequency = []
 
         self.mycursor.execute("""
-        SELECT Airline,COUNT(*) FROM flights
+        SELECT Airline,COUNT(*) FROM flights_cleaned___flights_cleaned
         GROUP BY Airline
         """)
 
@@ -58,7 +58,7 @@ class DB:
             airline.append(item[0])
             frequency.append(item[1])
 
-        return airline,frequency
+        return airline, frequency
 
     def busy_airport(self):
 
@@ -66,12 +66,12 @@ class DB:
         frequency = []
 
         self.mycursor.execute("""
-        SELECT Source,COUNT(*) FROM (SELECT Source FROM flights
-							UNION ALL
-							SELECT Destination FROM flights) t
-        GROUP BY t.Source
-        ORDER BY COUNT(*) DESC
-        """)
+            SELECT Source,COUNT(*) FROM (SELECT Source FROM flights_cleaned___flights_cleaned
+    							UNION ALL
+    							SELECT Destination FROM flights_cleaned___flights_cleaned) t
+            GROUP BY t.Source
+            ORDER BY COUNT(*) DESC
+            """)
 
         data = self.mycursor.fetchall()
 
@@ -87,9 +87,9 @@ class DB:
         frequency = []
 
         self.mycursor.execute("""
-        SELECT Date_of_Journey,COUNT(*) FROM flights
-        GROUP BY Date_of_Journey
-        """)
+            SELECT Date_of_Journey,COUNT(*) FROM flights_cleaned___flights_cleaned
+            GROUP BY Date_of_Journey
+            """)
 
         data = self.mycursor.fetchall()
 
@@ -98,7 +98,3 @@ class DB:
             frequency.append(item[1])
 
         return date, frequency
-
-
-
-
