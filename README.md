@@ -3,7 +3,7 @@
 ## Overview
 
 
-This project is a **Flight Analytics Dashboard** developed using Streamlit, Plotly, and MySQL, designed to visualize and analyze flight data. It consists of two primary components:
+This project is developed using Streamlit, Plotly, and MySQL and designed to visualize and analyze flight data. It consists of two primary components:
 
 1. **Front-end Application (app.py)**: The Streamlit application provides an intuitive user interface with three main sections accessible via a sidebar:
    - **About the Project**: Brief overview of the dashboard.
