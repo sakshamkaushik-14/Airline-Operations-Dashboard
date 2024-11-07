@@ -31,8 +31,7 @@ This dashboard provides an interactive and user-friendly tool for exploring key 
 
 ## Technologies Used
 - **Programming Languages**: Python, SQL
-- **Data Analysis**: Pandas, Data Cleaning, Data Transformation
-- **Web Development**: Flask, RESTful API Development
+- **Data Analysis**: Pandas, Data Transformation
 - **Dashboarding**: Streamlit (Interactive Dashboard Design)
 - **Database Management**: SQLite/MySQL, Query Optimization
 - **Backend Development**: API Integration, CRUD Operations
