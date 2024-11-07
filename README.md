@@ -40,10 +40,10 @@ This dashboard provides an interactive and user-friendly tool for exploring key 
 
 ## Screenshots - 
 - <img width="1440" alt="Screenshot 2024-11-07 at 8 30 25 PM" src="https://github.com/user-attachments/assets/4fbeae6d-c064-4f26-b597-c3389f678e8b"> 
-- <img width="1440" alt="Screenshot 2024-11-07 at 8 30 39 PM" src="https://github.com/user-attachments/assets/cd59c93d-f195-4e23-bef9-6c4ee3a24570">
 - <img width="1440" alt="Screenshot 2024-11-07 at 8 41 50 PM" src="https://github.com/user-attachments/assets/896dffde-dc3a-4572-8405-f87832418675">
 - <img width="1440" alt="Screenshot 2024-11-07 at 8 42 00 PM" src="https://github.com/user-attachments/assets/37108ea8-ddb5-4ea8-9ca8-855b3cdea39d">
 - <img width="1440" alt="Screenshot 2024-11-07 at 8 42 09 PM" src="https://github.com/user-attachments/assets/3d44619e-e1f2-4fbd-bc05-b39821804682">
+- <img width="1440" alt="Screenshot 2024-11-07 at 8 50 40 PM" src="https://github.com/user-attachments/assets/a1c9b7f8-5993-44f1-9be1-5d2809be0ce6">
 
 
  
