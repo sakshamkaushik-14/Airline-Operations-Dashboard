@@ -1,7 +1,7 @@
 # Airline-Operations-Dashboard
 
 ## Overview
-### Project Summary:
+
 
 This project is a **Flight Analytics Dashboard** developed using Streamlit, Plotly, and MySQL, designed to visualize and analyze flight data. It consists of two primary components:
 
