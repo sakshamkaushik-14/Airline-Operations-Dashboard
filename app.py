@@ -3,11 +3,12 @@ from dbhelper import DB
 import plotly.graph_objects as go
 import plotly.express as px
 
-db = DB()
 
 st.sidebar.title('Flights Analytics')
+user_option = st.sidebar.selectbox('Menu',['About the Project','Check Flights','Analytics'])
 
-user_option = st.sidebar.selectbox('Menu',['Select One','Check Flights','Analytics'])
+db = DB()
+
 
 if user_option == 'Check Flights':
     st.title('Check Flights')
@@ -43,6 +44,13 @@ elif user_option == 'Analytics':
         x=city,
         y=frequency1
     )
+    fig.update_layout(
+        title={
+        'text': 'Busiest Airport Bar Chart',
+        'font': {'size': 24}},  # Adjust title font size here,  # Chart title
+        xaxis_title='Airport',  # X-axis title
+        yaxis_title='Frequency'  # Y-axis title
+    )
 
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
@@ -54,8 +62,38 @@ elif user_option == 'Analytics':
         x=date,
         y=frequency2
     )
+    fig.update_layout(
+        title={
+            'text': 'Daily Number of Flights',
+            'font': {'size': 24}  # Adjust title font size here
+        },
+        xaxis_title='Dates',
+        yaxis_title='Number of Flights'
+    )
 
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 else:
-    st.title('Tell about the project')
+
+    st.title("Project Summary: Flight Analytics Dashboard")
+
+    st.write("""
+    This project is a **Flight Analytics Dashboard** developed using Streamlit, Plotly, and MySQL, designed to visualize and analyze flight data. It consists of two primary components:
+
+    1. **Front-end Application (app.py)**: The Streamlit application provides an intuitive user interface with three main sections accessible via a sidebar:
+       - **About the Project**: Brief overview of the dashboard.
+       - **Check Flights**: Allows users to select source and destination cities to view flight details, such as airline, route, departure time, duration, and price, in a structured data frame.
+       - **Analytics**: Offers various data visualizations, including:
+         - **Airline Frequency Pie Chart**: Visualizes the number of flights per airline.
+         - **Busiest Airport Bar Chart**: Shows the most frequently visited airports.
+         - **Daily Flights Line Chart**: Plots the daily frequency of flights over time.
+
+    2. **Database Helper (dbhelper.py)**: This module establishes a connection to a MySQL database, retrieves data, and executes the necessary SQL queries for the analytics dashboard. The functions include:
+       - Fetching distinct city names for the flight routes.
+       - Retrieving flight details based on source and destination.
+       - Calculating airline frequency for pie chart visualization.
+       - Identifying busy airports.
+       - Aggregating daily flight frequency for time-series analysis.
+
+    Together, this dashboard provides an interactive and user-friendly tool for exploring key trends and patterns in flight data.
+    """)
