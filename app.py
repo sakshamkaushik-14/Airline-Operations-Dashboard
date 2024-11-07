@@ -24,7 +24,8 @@ if user_option == 'Check Flights':
 
     if st.button('Search'):
         results = db.fetch_all_flights(source,destination)
-        st.dataframe(results)
+        df = pd.DataFrame(results, columns=['Airline', 'Route', 'Dep_Time', 'Duration', 'Price'])  # Rename columns
+        st.dataframe(df)
 
 elif user_option == 'Analytics':
     airline, frequency = db.fetch_airline_frequency()
